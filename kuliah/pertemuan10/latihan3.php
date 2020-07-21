@@ -38,7 +38,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     <?php foreach ($mahasiswa as $m) : ?>
       <tbody>
         <tr>
-          <td>1</td>
+          <td><?= $m['id']; ?></td>
           <td><img src="img/<?= $m['gambar']; ?>" width="60"></td>
           <td><?= $m['nama']; ?></td>
           <td>
