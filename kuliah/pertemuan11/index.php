@@ -1,5 +1,8 @@
 <?php
 require 'functions.php';
+
+
+
 $mahasiswa = query("SELECT * FROM mahasiswa");
 
 ?>
@@ -18,6 +21,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
   <title>Daftar Mahasiswa</title>
 
   <style>
@@ -66,10 +71,15 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 
     #divheader {
       box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px, rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
-      background-color: #9C27B0;
+      background-color: #AB47BC;
       height: 80px;
       padding: 20px;
       color: white;
+
+    }
+
+    .btn-danger {
+      background-color: #D500F9;
     }
   </style>
 
@@ -77,11 +87,17 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 
 <body>
   <div id="divheader">
-    <h3>Daftar Mahasiswa</h3>
+    <h3><i class="fas fa-university"></i> Daftar Mahasiswa</h3>
+    <form action="" method="POST" align="right" style="margin-top:-40px;">
+      <input type="text" name="keyword" size="40" placeholder="masukkan keyword pencarian" autocomplete="off" autofocus style="font-family:Roboto;">
+      <button type="submit" name="cari" class="btn btn-secondary" style="height: 29.3056px;padding:5px 30px;margin-top:3px;"><i class="fas fa-search" style="color:white;"></i></button>
+    </form>
   </div>
   <br>
 
-  <p style="text-align: center;font-size:18px;"><a href="tambah.php" id="add">Tambah Data Mahasiswa</a></p>
+
+
+  <p style="text-align: center;font-size:18px;"><a href="tambah.php" class="btn btn-info">Tambah Data Mahasiswa</a></p>
   <br>
 
   <table border="1" cellpadding="18" cellspacing="0" class="table table-hover" style="width: 1200px;" align="center" id="tablecontent">
@@ -100,7 +116,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
           <td><img src="img/<?= $m['gambar']; ?>" width="60"></td>
           <td><?= $m['nama']; ?></td>
           <td>
-            <a href="detail.php?id=<?= $m['id']; ?>">lihat detail</a>
+            <a href="detail.php?id=<?= $m['id']; ?>"><i class="fas fa-edit" style="font-size:25px;color:#AA00FF;"></i></a>
           </td>
         </tr>
       </tbody>
@@ -118,3 +134,4 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" integrity="sha384-3Nqiqht3ZZEO8FKj7GR1upiI385J92VwWNLj+FqHxtLYxd9l+WYpeqSOrLh0T12c" crossorigin="anonymous"></script>
