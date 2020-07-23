@@ -48,7 +48,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
       font-family: 'open sans';
     }
 
-    body {}
+
 
     #add:link,
     #add:visited {
