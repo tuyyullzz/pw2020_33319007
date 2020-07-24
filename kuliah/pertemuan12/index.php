@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location:login.php");
+  exit;
+}
+
+
 require 'functions.php';
 $mahasiswa = query("SELECT * FROM mahasiswa");
 
@@ -92,10 +100,11 @@ if (isset($_POST['cari'])) {
 <body>
   <div id="divheader">
     <h3><i class="fas fa-university"></i> Daftar Mahasiswa</h3>
-    <form action="" method="POST" align="right" style="margin-top:-40px;">
+    <form action="" method="POST" align="left" style="margin-top:-40px;">
       <input type="text" name="keyword" size="40" placeholder="masukkan keyword pencarian" autocomplete="off" autofocus style="font-family:Roboto;">
       <button type="submit" name="cari" class="btn btn-secondary" style="height: 29.3056px;padding:5px 30px;margin-top:3px;"><i class="fas fa-search" style="color:white;"></i></button>
     </form>
+    <a href="logout.php" class="btn btn-success" style="margin:-70px 0px 0px 1200px;">Logout</a>
   </div>
   <br>
 
@@ -104,7 +113,7 @@ if (isset($_POST['cari'])) {
   <p style="text-align: center;font-size:18px;"><a href="tambah.php" class="btn btn-info">Tambah Data Mahasiswa</a></p>
   <br>
 
-  <table border="1" cellpadding="18" cellspacing="0" class="table table-hover" style="width: 1200px;" align="center" id="tablecontent">
+  <table border="1" cellpadding="18" cellspacing="0" class="table table-hover" style="width: 1200px;box-shadow: 0 5px 15px rgba(0,0,0,.5);" align="center" id="tablecontent">
     <thead class="black white-text">
       <tr>
 
